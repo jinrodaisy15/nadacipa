@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@theme {
+  --font-dancing: "Dancing Script", cursive;
+  --font-poppins: "Poppins", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --color-rose-gold: #b76e79;
+  --color-rose-gold-light: #d4a0a7;
+  --color-rose-gold-dark: #8e4f57;
+  --color-blush: #fdf2f4;
+  --color-cream: #fefcf3;
+  --color-warm-brown: #5c3d2e;
+  --color-soft-pink: #f8e8ee;
+  --color-lavender: #e8dff5;
+  --color-dusty-rose: #c9a0a0;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf2f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #b76e79, #d4a0a7);
+  border-radius: 10px;
+}
+
+/* Floating hearts animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) rotate(20deg) scale(1);
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-heart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-float-up {
+  animation: float-up linear infinite;
+}
+
+.animate-pulse-heart {
+  animation: pulse-heart 1.5s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.text-gradient-rose {
+  background: linear-gradient(135deg, #b76e79, #e8a0b0, #b76e79);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-romantic {
+  background: linear-gradient(135deg, #fdf2f4 0%, #fefcf3 25%, #f8e8ee 50%, #e8dff5 75%, #fdf2f4 100%);
+}
+
+/* Photo gallery hover effects */
+.gallery-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(183, 110, 121, 0.3);
+}
+
+.gallery-card img {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Parallax sections */
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Timeline styling */
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, #b76e79, #d4a0a7, #b76e79, transparent);
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  backdrop-filter: blur(10px);
+}
+
+/* Music button pulse */
+.music-btn-pulse {
+  box-shadow: 0 0 0 0 rgba(183, 110, 121, 0.7);
+  animation: music-pulse 2s infinite;
+}
+
+@keyframes music-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(183, 110, 121, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(183, 110, 121, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(183, 110, 121, 0); }
+}
