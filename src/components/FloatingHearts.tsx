@@ -13,13 +13,17 @@ export default function FloatingHearts() {
   const [hearts, setHearts] = useState<Heart[]>([]);
 
   useEffect(() => {
-    const newHearts: Heart[] = Array.from({ length: 15 }, (_, i) => ({
+    // Fewer hearts on mobile for performance
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 8 : 15;
+
+    const newHearts: Heart[] = Array.from({ length: count }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: Math.random() * 20 + 10,
-      duration: Math.random() * 10 + 8,
-      delay: Math.random() * 10,
-      opacity: Math.random() * 0.4 + 0.1,
+      size: Math.random() * 16 + 8,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 12,
+      opacity: Math.random() * 0.3 + 0.08,
     }));
     setHearts(newHearts);
   }, []);
